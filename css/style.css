@@ -110,3 +110,44 @@ body {
     color: #666;
     margin-top: 2em;
 }
+
+/* Payment Details Section */
+.payment-details {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 16px;
+    padding: 2.5em;
+    margin-top: 2em;
+    text-align: center;
+}
+
+.payment-details h2 {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: #eee;
+}
+
+.payment-details p {
+    color: #aaa;
+    margin-bottom: 1.5em;
+}
+
+#qrcode {
+    margin: 0 auto 1.5em auto;
+    background-color: white;
+    padding: 1em;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+#qrcode img {
+    display: block;
+}
+
+#payment-link {
+    background-color: #333;
+    cursor: copy;
+    text-align: center;
+    word-wrap: break-word;
+}

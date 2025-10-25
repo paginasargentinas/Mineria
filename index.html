@@ -32,6 +32,8 @@
     </script>
     <!-- END: AI-Readable Structured Data (JSON-LD) -->
 
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
+
 </head>
 <body>
 
@@ -66,9 +68,20 @@
                         <input type="number" id="amount-usd" name="amount" min="5" max="1000" placeholder="Mín: 5, Máx: 1000" required>
                     </div>
 
-                    <button type="submit" class="cta-button">Iniciar Minería (Simulación)</button>
+                    <button type="submit" class="cta-button">Generar Link de Pago (Simulación)</button>
                 </form>
                 <p class="disclaimer">*Esto es una simulación. No se procesarán transacciones reales.</p>
+            </section>
+
+            <!-- Sección para mostrar el link de pago y QR (oculta por defecto) -->
+            <section id="payment-info" class="payment-details" style="display: none;">
+                <h2>Tu Link de Pago Simulado</h2>
+                <p>Escanea el código QR con tu wallet o copia el link.</p>
+                <div id="qrcode"></div>
+                <div class="input-group">
+                    <label for="payment-link">Link de Pago (URI)</label>
+                    <input type="text" id="payment-link" readonly>
+                </div>
             </section>
         </main>
     </div>
