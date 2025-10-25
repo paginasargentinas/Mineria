@@ -41,12 +41,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // 1. Calcular la cantidad en cripto (simulado)
         const cryptoAmount = amountUSD / conversionRates[selectedNetwork];
 
-        // 2. Construir el link de pago (URI EIP-681)
-        // Formato: ethereum:<address>@<chain_id>?value=<amount_in_wei>
-        // Nota: Para BSC y otras EVM, el prefijo suele ser 'ethereum:'
+        // 2. Construir el link de pago (Formato Deep Link de MetaMask)
+        // Formato: https://link.metamask.io/send/{recipient}@{chainId}?value={amountInWei}
         const chainId = networkChainIds[selectedNetwork];
         const amountInWei = (cryptoAmount * Math.pow(10, 18)).toString(); // Convertir a la unidad más pequeña (Wei para ETH/BNB)
-        const paymentURI = `ethereum:${toWalletAddress}@${chainId}?value=${amountInWei}`;
+        const paymentURI = `https://link.metamask.io/send/${toWalletAddress}@${chainId}?value=${amountInWei}`;
 
         // 3. Mostrar la sección de pago
         paymentLinkInput.value = paymentURI;
