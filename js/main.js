@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const networkSelect = document.getElementById('network-select');
     const paymentInfoSection = document.getElementById('payment-info');
     const qrCodeContainer = document.getElementById('qrcode');
-    const paymentLinkInput = document.getElementById('payment-link');
+    const paymentLink = document.getElementById('payment-link'); // Ahora es un <a>
+    const qrLink = document.getElementById('qr-link'); // El <a> que envuelve al QR
 
     const toWalletAddress = '0x4B2059AaF52274286e53148214d5A1135Caefceb';
 
@@ -42,13 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const cryptoAmount = amountUSD / conversionRates[selectedNetwork];
 
         // 2. Construir el link de pago (Formato Deep Link de MetaMask)
-        // Formato: https://link.metamask.io/send/{recipient}@{chainId}?value={amountInWei}
         const chainId = networkChainIds[selectedNetwork];
-        const amountInWei = (cryptoAmount * Math.pow(10, 18)).toString(); // Convertir a la unidad más pequeña (Wei para ETH/BNB)
+        const amountInWei = (cryptoAmount * Math.pow(10, 18)).toString();
         const paymentURI = `https://link.metamask.io/send/${toWalletAddress}@${chainId}?value=${amountInWei}`;
 
-        // 3. Mostrar la sección de pago
-        paymentLinkInput.value = paymentURI;
+        // 3. Actualizar los enlaces y mostrar la sección
+        paymentLink.href = paymentURI;
+        paymentLink.textContent = `${paymentURI.substring(0, 40)}...`; // Acortar para visualización
+        qrLink.href = paymentURI;
         paymentInfoSection.style.display = 'block';
 
         // 4. Generar el código QR

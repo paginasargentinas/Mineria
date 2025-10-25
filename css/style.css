@@ -151,3 +151,21 @@ body {
     text-align: center;
     word-wrap: break-word;
 }
+
+/* Estilos para el nuevo link de pago clicable */
+.payment-uri-link {
+    display: block;
+    padding: 14px;
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #00aaff;
+    text-decoration: none;
+    word-break: break-all;
+    transition: background-color 0.3s;
+}
+
+.payment-uri-link:hover {
+    background-color: #333;
+    text-decoration: underline;
+}

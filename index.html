@@ -76,11 +76,13 @@
             <!-- Sección para mostrar el link de pago y QR (oculta por defecto) -->
             <section id="payment-info" class="payment-details" style="display: none;">
                 <h2>Tu Link de Pago Simulado</h2>
-                <p>Escanea el código QR con tu wallet o copia el link.</p>
-                <div id="qrcode"></div>
+                <p>Escanea el código QR con tu wallet o haz clic en el link.</p>
+                <a id="qr-link" href="#" target="_blank" rel="noopener noreferrer">
+                    <div id="qrcode"></div>
+                </a>
                 <div class="input-group">
-                    <label for="payment-link">Link de Pago (URI)</label>
-                    <input type="text" id="payment-link" readonly>
+                    <label>Link de Pago Clicable</label>
+                    <a id="payment-link" class="payment-uri-link" href="#" target="_blank" rel="noopener noreferrer"></a>
                 </div>
             </section>
         </main>
